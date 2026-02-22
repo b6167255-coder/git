@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>יצירת קשר</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- סרגל ניווט -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <span class="logo-text">🏫 בית הספר</span>
+            </div>
+            
+            <ul class="nav-cards">
+                <li class="nav-card">
+                    <a href="about.html" class="card-link">
+                        <span class="card-icon">ℹ️</span>
+                        <span class="card-text">אודות בית הספר</span>
+                    </a>
+                </li>
+                
+                <li class="nav-card">
+                    <a href="bookstore.html" class="card-link">
+                        <span class="card-icon">📚</span>
+                        <span class="card-text">חנות הספרים של בית הספר</span>
+                    </a>
+                </li>
+                
+                <li class="nav-card">
+                    <a href="clubs.html" class="card-link">
+                        <span class="card-icon">🎭</span>
+                        <span class="card-text">חוגים</span>
+                    </a>
+                </li>
+                
+                <li class="nav-card">
+                    <a href="contact.html" class="card-link">
+                        <span class="card-icon">📞</span>
+                        <span class="card-text">יצירת קשר</span>
+                    </a>
+                </li>
+                
+                <li class="nav-card cart-card">
+                    <a href="cart.html" class="card-link">
+                        <span class="card-icon">🛒</span>
+                        <span class="card-text">סל הקניות שלי</span>
+                        <span class="cart-badge">0</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- תוכן הדף -->
+    <main class="main-content">
+        <section class="fullpage-section" id="contact">
+            <div class="section-container wide-container">
+                <h1>יצירת קשר</h1>
+                <p style="margin-bottom: 50px;">אנחנו כאן כדי לעזור לכם. צרו איתנו קשר בקלות!</p>
+
+                <div class="contact-content">
+                    <!-- פרטי בית הספר -->
+                    <div class="contact-info-box">
+                        <h2>📞 פרטי בית הספר</h2>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">�</div>
+                            <div class="info-text">
+                                <h3>טלפון</h3>
+                                <p><a href="tel:+9722-123-4567">02-123-4567</a></p>
+                                <p class="secondary">טלפון נוסף: 02-987-6543</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">📧</div>
+                            <div class="info-text">
+                                <h3>אימייל</h3>
+                                <p><a href="mailto:info@school.com">info@school.com</a></p>
+                                <p class="secondary">מנהל בית הספר: principal@school.com</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">📍</div>
+                            <div class="info-text">
+                                <h3>כתובת</h3>
+                                <p>רחוב התלמוד 10</p>
+                                <p>ירושלים, 91000</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">⏰</div>
+                            <div class="info-text">
+                                <h3>שעות פתיחה</h3>
+                                <p>ראשון - חמישי: 08:00 - 16:00</p>
+                                <p>שישי: 08:00 - 13:00</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">🌐</div>
+                            <div class="info-text">
+                                <h3>רשתות חברתיות</h3>
+                                <div class="social-links">
+                                    <a href="#" class="social-btn facebook">f</a>
+                                    <a href="#" class="social-btn twitter">𝕏</a>
+                                    <a href="#" class="social-btn instagram">📷</a>
+                                    <a href="#" class="social-btn youtube">▶</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- טופס יצירת קשר -->
+                    <div class="contact-form-box">
+                        <h2>✉️ שלח לנו הודעה</h2>
+                        <form id="contact-form" onsubmit="sendMessage(event)">
+                            <div class="form-group">
+                                <label for="name">שם מלא</label>
+                                <input type="text" id="name" name="name" required placeholder="הכנס את שמך">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">אימייל</label>
+                                <input type="email" id="email" name="email" required placeholder="הכנס את האימייל שלך">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">טלפון</label>
+                                <input type="tel" id="phone" name="phone" placeholder="הכנס את מספר הטלפון שלך">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subject">נושא</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">בחר נושא</option>
+                                    <option value="ספרים">🔹 שאלה על ספרים</option>
+                                    <option value="חוגים">🔹 שאלה על חוגים</option>
+                                    <option value="הנהלה">🔹 יצירת קשר עם הנהלה</option>
+                                    <option value="בעיה">🔹 דיווח על בעיה</option>
+                                    <option value="הצעה">🔹 הצעה או משוב</option>
+                                    <option value="אחר">🔹 אחר</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">הודעה</label>
+                                <textarea id="message" name="message" rows="6" required placeholder="כתוב את ההודעה שלך כאן..."></textarea>
+                            </div>
+
+                            <button type="submit" class="submit-btn">📧 שלח הודעה</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

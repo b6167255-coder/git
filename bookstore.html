@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>חנות הספרים של בית הספר</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- סרגל ניווט -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <span class="logo-text">🏫 בית הספר</span>
+            </div>
+            
+            <ul class="nav-cards">
+                <li class="nav-card">
+                    <a href="about.html" class="card-link">
+                        <span class="card-icon">ℹ️</span>
+                        <span class="card-text">אודות בית הספר</span>
+                    </a>
+                </li>
+                
+                <li class="nav-card">
+                    <a href="bookstore.html" class="card-link">
+                        <span class="card-icon">📚</span>
+                        <span class="card-text">חנות הספרים של בית הספר</span>
+                    </a>
+                </li>
+                
+                <li class="nav-card">
+                    <a href="clubs.html" class="card-link">
+                        <span class="card-icon">🎭</span>
+                        <span class="card-text">חוגים</span>
+                    </a>
+                </li>
+                
+                <li class="nav-card">
+                    <a href="contact.html" class="card-link">
+                        <span class="card-icon">📞</span>
+                        <span class="card-text">יצירת קשר</span>
+                    </a>
+                </li>
+                
+                <li class="nav-card cart-card">
+                    <a href="cart.html" class="card-link">
+                        <span class="card-icon">🛒</span>
+                        <span class="card-text">סל הקניות שלי</span>
+                        <span class="cart-badge">0</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- תוכן הדף -->
+    <main class="main-content">
+        <section class="fullpage-section" id="bookstore">
+            <div class="section-container wide-container">
+                <h1>חנות הספרים של בית הספר</h1>
+
+                <!-- בחירת כיתה -->
+                <div id="class-selection" class="class-selection">
+                    <h2>בחר כיתה</h2>
+                    <div class="class-buttons">
+                        <button class="class-btn" onclick="selectClass('א')">כיתה א'</button>
+                        <button class="class-btn" onclick="selectClass('ב')">כיתה ב'</button>
+                        <button class="class-btn" onclick="selectClass('ג')">כיתה ג'</button>
+                        <button class="class-btn" onclick="selectClass('ד')">כיתה ד'</button>
+                        <button class="class-btn" onclick="selectClass('ה')">כיתה ה'</button>
+                        <button class="class-btn" onclick="selectClass('ו')">כיתה ו'</button>
+                        <button class="class-btn" onclick="selectClass('ז')">כיתה ז'</button>
+                        <button class="class-btn" onclick="selectClass('ח')">כיתה ח'</button>
+                        <button class="class-btn" onclick="selectClass('ט')">כיתה ט'</button>
+                        <button class="class-btn" onclick="selectClass('י')">כיתה י'</button>
+                        <button class="class-btn" onclick="selectClass('יא')">כיתה יא'</button>
+                        <button class="class-btn" onclick="selectClass('יב')">כיתה יב'</button>
+                    </div>
+                </div>
+
+                <!-- טבלת ספרים -->
+                <div id="books-table-container" class="books-table-container" style="display: none;">
+                    <h2>ספרי לימוד - <span id="selected-class"></span></h2>
+                    <button class="back-btn" onclick="backToClasses()">← חזור לבחירת כיתה</button>
+                    
+                    <table class="books-table">
+                        <thead>
+                            <tr>
+                                <th>שם</th>
+                                <th>מקצוע</th>
+                                <th>מחיר (₪)</th>
+                                <th>סוג</th>
+                                <th>הקבצה</th>
+                                <th>פעולה</th>
+                            </tr>
+                        </thead>
+                        <tbody id="books-tbody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

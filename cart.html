@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>סל הקניות שלי</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- סרגל ניווט -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <span class="logo-text">🏫 בית הספר</span>
+            </div>
+            
+            <ul class="nav-cards">
+                <li class="nav-card">
+                    <a href="about.html" class="card-link">
+                        <span class="card-icon">ℹ️</span>
+                        <span class="card-text">אודות בית הספר</span>
+                    </a>
+                </li>
+                
+                <li class="nav-card">
+                    <a href="bookstore.html" class="card-link">
+                        <span class="card-icon">📚</span>
+                        <span class="card-text">חנות הספרים של בית הספר</span>
+                    </a>
+                </li>
+                
+                <li class="nav-card">
+                    <a href="clubs.html" class="card-link">
+                        <span class="card-icon">🎭</span>
+                        <span class="card-text">חוגים</span>
+                    </a>
+                </li>
+                
+                <li class="nav-card">
+                    <a href="contact.html" class="card-link">
+                        <span class="card-icon">📞</span>
+                        <span class="card-text">יצירת קשר</span>
+                    </a>
+                </li>
+                
+                <li class="nav-card cart-card">
+                    <a href="cart.html" class="card-link">
+                        <span class="card-icon">🛒</span>
+                        <span class="card-text">סל הקניות שלי</span>
+                        <span class="cart-badge">0</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- תוכן הדף -->
+    <main class="main-content">
+        <section class="fullpage-section" id="cart">
+            <div class="section-container wide-container">
+                <h1>🛒 סל הקניות שלי</h1>
+                
+                <!-- הודעה כשהסל ריק -->
+                <div id="empty-cart-message" class="empty-cart-message">
+                    <div class="empty-cart-content">
+                        <div class="empty-cart-icon">🛒</div>
+                        <h2>סל הקניות שלך ריק</h2>
+                        <p>עדיין לא בחרת שום פריט. בחר ספרים מחנות הספרים שלנו או חוגים!</p>
+                        <div class="empty-cart-buttons">
+                            <a href="bookstore.html" class="btn-link bookstore-btn">📚 עבור לחנות הספרים</a>
+                            <a href="clubs.html" class="btn-link clubs-btn">🎭 עבור לחוגים</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- טבלת הפריטים בסל -->
+                <div id="cart-content" style="display: none;">
+                    <div class="cart-table-container">
+                        <table class="cart-table">
+                            <thead>
+                                <tr>
+                                    <th>פריט</th>
+                                    <th>סוג</th>
+                                    <th>מחיר</th>
+                                    <th>כמות</th>
+                                    <th>סכום</th>
+                                    <th>פעולות</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cart-items-table">
+                                <!-- הפריטים יתווספו כאן -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- סיכום הסל -->
+                    <div class="cart-summary">
+                        <div class="summary-content">
+                            <div class="summary-item">
+                                <span>סה"כ פריטים:</span>
+                                <strong id="total-items">0</strong>
+                            </div>
+                            <div class="summary-item">
+                                <span>סה"כ מחיר:</span>
+                                <strong id="total-price" class="total-price">0 ₪</strong>
+                            </div>
+                        </div>
+
+                        <!-- כפתורי פעולה -->
+                        <div class="cart-actions">
+                            <button onclick="continueShopping()" class="action-btn continue-btn">
+                                ➕ המשך קניות
+                            </button>
+                            <button onclick="clearCartItems()" class="action-btn clear-btn">
+                                🗑️ נקה סל
+                            </button>
+                            <button onclick="proceedToCheckout()" class="action-btn checkout-btn">
+                                💳 המשך לתשלום
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

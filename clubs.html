@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>חוגים</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- סרגל ניווט -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <span class="logo-text">🏫 בית הספר</span>
+            </div>
+            
+            <ul class="nav-cards">
+                <li class="nav-card">
+                    <a href="about.html" class="card-link">
+                        <span class="card-icon">ℹ️</span>
+                        <span class="card-text">אודות בית הספר</span>
+                    </a>
+                </li>
+                
+                <li class="nav-card">
+                    <a href="bookstore.html" class="card-link">
+                        <span class="card-icon">📚</span>
+                        <span class="card-text">חנות הספרים של בית הספר</span>
+                    </a>
+                </li>
+                
+                <li class="nav-card">
+                    <a href="clubs.html" class="card-link">
+                        <span class="card-icon">🎭</span>
+                        <span class="card-text">חוגים</span>
+                    </a>
+                </li>
+                
+                <li class="nav-card">
+                    <a href="contact.html" class="card-link">
+                        <span class="card-icon">📞</span>
+                        <span class="card-text">יצירת קשר</span>
+                    </a>
+                </li>
+                
+                <li class="nav-card cart-card">
+                    <a href="cart.html" class="card-link">
+                        <span class="card-icon">🛒</span>
+                        <span class="card-text">סל הקניות שלי</span>
+                        <span class="cart-badge">0</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- תוכן הדף -->
+    <main class="main-content">
+        <section class="fullpage-section" id="clubs">
+            <div class="section-container wide-container">
+                <h1>חוגים</h1>
+                <p style="margin-bottom: 40px;">בחרו את החוג המתאים לכם והצטרפו לקהילה שלנו!</p>
+
+                <!-- פילטרים -->
+                <div class="filters-container">
+                    <div class="filter-group">
+                        <label for="day-filter">📅 סנן לפי יום:</label>
+                        <select id="day-filter" onchange="applyFilters()">
+                            <option value="">הכל</option>
+                            <option value="ראשון">יום ראשון</option>
+                            <option value="שני">יום שני</option>
+                            <option value="שלישי">יום שלישי</option>
+                            <option value="רביעי">יום רביעי</option>
+                            <option value="חמישי">יום חמישי</option>
+                            <option value="שישי">יום שישי</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="grade-filter">👥 סנן לפי שכבה:</label>
+                        <select id="grade-filter" onchange="applyFilters()">
+                            <option value="">הכל</option>
+                            <option value="א">כיתות א'-ו'</option>
+                            <option value="ב">כיתות ב'-יב'</option>
+                            <option value="ג">כיתות ג'-יב'</option>
+                            <option value="ד">כיתות ד'-יב'</option>
+                            <option value="ה">כיתות ה'-ט'</option>
+                            <option value="ו">כיתות ו'-יב'</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="type-filter">🎯 סנן לפי סוג:</label>
+                        <select id="type-filter" onchange="applyFilters()">
+                            <option value="">הכל</option>
+                            <option value="ספורט">⚽ ספורט וכושר</option>
+                            <option value="אומנות">🎨 אומנות ותכנון</option>
+                            <option value="מוזיקה">🎵 מוזיקה ושירה</option>
+                            <option value="מדע">🔬 מדע וטכנולוגיה</option>
+                            <option value="מחשבים">💻 מדעי המחשב</option>
+                            <option value="דרמה">🎭 דרמה ותיאטרון</option>
+                            <option value="קריאה">📚 קריאה וספרות</option>
+                            <option value="שחמט">♟️ שחמט וחשיבה</option>
+                        </select>
+                    </div>
+
+                    <button class="reset-filters-btn" onclick="resetFilters()">🔄 אפס פילטרים</button>
+                </div>
+
+                <!-- לוח זמנים -->
+                <div class="schedule-container">
+                    <h2>📅 לוח זמנים שבועי</h2>
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>יום שישי</th>
+                                <th>יום חמישי</th>
+                                <th>יום רביעי</th>
+                                <th>יום שלישי</th>
+                                <th>יום שני</th>
+                                <th>יום ראשון</th>
+                                <th>שעה</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td class="club-slot" data-club="אומנות ותכנון">🎨 אומנות</td>
+                                <td class="club-slot" data-club="ספורט וכושר">⚽ ספורט</td>
+                                <td class="club-slot" data-club="שחמט וחשיבה אסטרטגית">♟️ שחמט</td>
+                                <td class="club-slot" data-club="אומנות ותכנון">🎨 אומנות</td>
+                                <td class="club-slot" data-club="ספורט וכושר">⚽ ספורט</td>
+                                <td class="time-label">15:00-16:30</td>
+                            </tr>
+                            <tr>
+                                <td class="club-slot" data-club="מדעי המחשב">💻 קודים</td>
+                                <td class="club-slot" data-club="מוזיקה ושירה">🎵 מוזיקה</td>
+                                <td class="club-slot" data-club="מדע וטכנולוגיה">🔬 מדע</td>
+                                <td class="club-slot" data-club="דרמה ותיאטרון">🎭 דרמה</td>
+                                <td class="club-slot" data-club="מוזיקה ושירה">🎵 מוזיקה</td>
+                                <td class="club-slot" data-club="קריאה וספרות">📚 קריאה</td>
+                                <td class="time-label">16:45-18:00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="clubs-grid">
+                    <!-- חוג 1: ספורט -->
+                    <div class="club-card">
+                        <div class="club-header">
+                            <h3>⚽ ספורט וכושר</h3>
+                        </div>
+                        <div class="club-content">
+                            <div class="club-info">
+                                <p><strong>📅 ימים ושעות:</strong> ראשון, רביעי 15:00-16:30</p>
+                                <p><strong>👥 לאילו שכבות:</strong> כיתות ה'-ט'</p>
+                                <p><strong>📝 תיאור:</strong> חוג מכל הלב לספורט! נתרגל פעילויות כושר, משחקי כדור וכושר שנועדו לשפר את הבריאות והשיתוף הפעולה.</p>
+                            </div>
+                            <button class="add-club-btn" onclick="addClubToCart('ספורט וכושר', 50)">הוסף לסל</button>
+                        </div>
+                    </div>
+
+                    <!-- חוג 2: אומנות -->
+                    <div class="club-card">
+                        <div class="club-header">
+                            <h3>🎨 אומנות ותכנון</h3>
+                        </div>
+                        <div class="club-content">
+                            <div class="club-info">
+                                <p><strong>📅 ימים ושעות:</strong> שני, חמישי 15:00-16:30</p>
+                                <p><strong>👥 לאילו שכבות:</strong> כיתות א'-ו'</p>
+                                <p><strong>📝 תיאור:</strong> חוג אומנות יצירתי שבו תלמידים יוצרים ציורים, פסלים ופרויקטים אמנותיים. מפתח כושר יצירתיות ודמיון.</p>
+                            </div>
+                            <button class="add-club-btn" onclick="addClubToCart('אומנות ותכנון', 45)">הוסף לסל</button>
+                        </div>
+                    </div>
+
+                    <!-- חוג 3: מוזיקה -->
+                    <div class="club-card">
+                        <div class="club-header">
+                            <h3>🎵 מוזיקה ושירה</h3>
+                        </div>
+                        <div class="club-content">
+                            <div class="club-info">
+                                <p><strong>📅 ימים ושעות:</strong> שני, חמישי 16:45-18:00</p>
+                                <p><strong>👥 לאילו שכבות:</strong> כיתות ב'-יב'</p>
+                                <p><strong>📝 תיאור:</strong> למדו נגינה, עולם המוזיקה ופיתוח כישרון מוסיקלי. כוללת הכנה לקונצרטים וביצועים.</p>
+                            </div>
+                            <button class="add-club-btn" onclick="addClubToCart('מוזיקה ושירה', 60)">הוסף לסל</button>
+                        </div>
+                    </div>
+
+                    <!-- חוג 4: מדע וטכנולוגיה -->
+                    <div class="club-card">
+                        <div class="club-header">
+                            <h3>🔬 מדע וטכנולוגיה</h3>
+                        </div>
+                        <div class="club-content">
+                            <div class="club-info">
+                                <p><strong>📅 ימים ושעות:</strong> ראשון, רביעי 16:45-18:00</p>
+                                <p><strong>👥 לאילו שכבות:</strong> כיתות ו'-יב'</p>
+                                <p><strong>📝 תיאור:</strong> חוג המסקרן את סודות המדע! ניסויים, פרויקטים מעניינים וגילוי עולם הטכנולוגיה.</p>
+                            </div>
+                            <button class="add-club-btn" onclick="addClubToCart('מדע וטכנולוגיה', 70)">הוסף לסל</button>
+                        </div>
+                    </div>
+
+                    <!-- חוג 5: תכנות -->
+                    <div class="club-card">
+                        <div class="club-header">
+                            <h3>💻 מדעי המחשב</h3>
+                        </div>
+                        <div class="club-content">
+                            <div class="club-info">
+                                <p><strong>📅 ימים ושעות:</strong> שלישי, שישי 15:00-16:30</p>
+                                <p><strong>👥 לאילו שכבות:</strong> כיתות ה'-יב'</p>
+                                <p><strong>📝 תיאור:</strong> למדו תכנות, קודים וייצור משחקים! חוג למי שאוהב טכנולוגיה ורוצה להבין איך עובדים המחשבים.</p>
+                            </div>
+                            <button class="add-club-btn" onclick="addClubToCart('מדעי המחשב', 75)">הוסף לסל</button>
+                        </div>
+                    </div>
+
+                    <!-- חוג 6: דרמה ותיאטרון -->
+                    <div class="club-card">
+                        <div class="club-header">
+                            <h3>� דרמה ותיאטרון</h3>
+                        </div>
+                        <div class="club-content">
+                            <div class="club-info">
+                                <p><strong>📅 ימים ושעות:</strong> שלישי 16:45-18:00</p>
+                                <p><strong>👥 לאילו שכבות:</strong> כיתות ג'-יב'</p>
+                                <p><strong>📝 תיאור:</strong> חוג למשחקני תפקידים! נלמד קווי דיאלוג, קומדיה ודרמה. הופעות בסוף השנה.</p>
+                            </div>
+                            <button class="add-club-btn" onclick="addClubToCart('דרמה ותיאטרון', 55)">הוסף לסל</button>
+                        </div>
+                    </div>
+
+                    <!-- חוג 7: קריאה וספרות -->
+                    <div class="club-card">
+                        <div class="club-header">
+                            <h3>📚 קריאה וספרות</h3>
+                        </div>
+                        <div class="club-content">
+                            <div class="club-info">
+                                <p><strong>� ימים ושעות:</strong> ראשון 16:45-18:00</p>
+                                <p><strong>👥 לאילו שכבות:</strong> כיתות א'-ו'</p>
+                                <p><strong>📝 תיאור:</strong> חוג לאוהבי ספרים וסיפורים! נקרא סיפורים מרתקים, נכתוב סיפורים שלנו ונדון בהם.</p>
+                            </div>
+                            <button class="add-club-btn" onclick="addClubToCart('קריאה וספרות', 40)">הוסף לסל</button>
+                        </div>
+                    </div>
+
+                    <!-- חוג 8: שחמט -->
+                    <div class="club-card">
+                        <div class="club-header">
+                            <h3>♟️ שחמט וחשיבה אסטרטגית</h3>
+                        </div>
+                        <div class="club-content">
+                            <div class="club-info">
+                                <p><strong>📅 ימים ושעות:</strong> שלישי, שישי 16:45-18:00</p>
+                                <p><strong>� לאילו שכבות:</strong> כיתות ד'-יב'</p>
+                                <p><strong>📝 תיאור:</strong> למדו את משחק המלכים! טיפולים לכל הרמות מתחיל ועד מתקדם. תחרויות פנימיות במהלך השנה.</p>
+                            </div>
+                            <button class="add-club-btn" onclick="addClubToCart('שחמט וחשיבה אסטרטגית', 50)">הוסף לסל</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
